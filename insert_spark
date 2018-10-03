@@ -1,0 +1,22 @@
+# shell commands to insert data to elasticsearch using spark#
+
+import org.elasticsearch.spark.sql._
+import spark.implicits._
+
+case class Book(Title:String, Year:String, Author:String)
+
+def mapper(line:String): Book = {
+
+	val fields=line.split(',')
+
+     	val book:Book = Book(fields(1), fields(4), fields(2))
+
+     	return book
+
+     	 }
+
+val lines = spark.sparkContext.textFile("./library_data/segmentab.csv")
+
+val books = lines.map(mapper).toDF()
+
+books.saveToEs("sparktest/books")
