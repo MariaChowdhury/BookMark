@@ -6,15 +6,13 @@ from elasticsearch import Elasticsearch
 app = Flask(__name__)
 es = Elasticsearch()
 @app.route('/',methods=["GET","POST"])
-#@app.route('/index')
 
 def index():
-	#q=request.args.get("q")
 	q=request.form.get("q")
 	if q is not None:
 		resp=es.search(index="my_index",doc_type="books", body={"query": { 'match': {'Title': q} }})
 		return render_template('index.html',q=q,response=resp)
-	return render_template('index.html')
+	return render_template('altindex.html')
 
 
 
