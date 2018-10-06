@@ -12,11 +12,10 @@ def mapper(line:String): Book = {
      	val book:Book = Book(fields(1), fields(4), fields(2))
 
      	return book
+	}
 
-     	 }
-
-val lines = spark.sparkContext.textFile("./library_data/segmentab.csv")
+val lines = spark.sparkContext.textFile("./library_data/dest")
 
 val books = lines.map(mapper).toDF()
 
-books.saveToEs("sparktest/books")
+books.saveToEs("my_index/books", Map("es.mapping.id" -> "Title"))
