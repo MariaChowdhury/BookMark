@@ -6,7 +6,7 @@
  <body>
 	<form action="/" method="post" autocomplete="off"> 
 		<label for="q"></label> <input type="text" name="q" id="q" value={{q}}>  
-		<input type="submit" value="Search"> 
+		<input type="submit" value="Title"> 
 
 	<ol>
         {% for resp in response.hits.hits %}
@@ -17,6 +17,15 @@
 
         </form>
 	
+
+
+<form action="/" method="post" autocomplete="off">
+                <label for="auth"></label> <input type="text" name="auth" id="auth" value={{auth}}>
+                <input type="submit" value="Author">
+
+
+
+        </form>
 
 
 
