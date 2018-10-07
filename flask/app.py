@@ -9,9 +9,14 @@ es = Elasticsearch()
 
 def index():
 	q=request.form.get("q")
+	auth=request.form.get("auth")
 	if q is not None:
 		resp=es.search(index="my_index",doc_type="books", body={"query": { 'match': {'Title': q} }})
 		return render_template('index.html',q=q,response=resp)
+	if auth is not None:
+		resp=es.search(index="my_index",doc_type="books", body={"query": { 'match': {'Author': auth} }})
+                return render_template('index.html',auth=auth,response=resp)
+
 	return render_template('altindex.html')
 
 
