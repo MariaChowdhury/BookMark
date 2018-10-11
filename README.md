@@ -3,13 +3,16 @@
 --- 
 Helping user to find meta data about book from an aggregated data source.
 
-## DATA PIPELINE
+# DATA PIPELINE
 ![](https://github.com/MariaChowdhury/BookMark/blob/master/pipeline.png)
-##Data:
+
+#Data:
 Data is collected from different sources such as Kaggle, http://onlinebooks.library.upenn.edu/  and Project Gutenberg
-##Data Processing:
+
+#Data Processing:
 The data is processed using Spark.
-##Database:
+
+#Database:
  "mappings": {
 	          "properties": {
 	            "Title": {
@@ -24,5 +27,5 @@ The data is processed using Spark.
 	          }
 	        }
 
-##Front End:
+#Front End:
 Flask is used as the front end for Elasticsearch. 
