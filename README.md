@@ -1,7 +1,7 @@
 # BookMark
 ## - Book Aggregator and Meta Search Engine
---- 
-Helping user to find meta data about book from an aggregated large scale data source. It allows people to provede search query and retrieve the desired result very fast. 
+ 
+Helping user to find meta data about book from an aggregated large scale data source. It allows people to provide search query and retrieve the desired result very fast. 
 
 # DATA PIPELINE
 ![](https://github.com/MariaChowdhury/BookMark/blob/master/pipeline.png)
@@ -14,6 +14,7 @@ The data is processed using Spark to inject to data storage.
 
 # Database:
 Elastichsearch is used to store the data for fast retrieval.
+
  "mappings": {
 	          "properties": {
 	            "Title": {
@@ -29,4 +30,5 @@ Elastichsearch is used to store the data for fast retrieval.
 	        }
 
 # Front End:
+
 Flask is used as the front end for Elasticsearch for user interaction.
