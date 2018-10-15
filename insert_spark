@@ -3,8 +3,10 @@
 import org.elasticsearch.spark.sql._
 import spark.implicits._
 
+#object definition
 case class Book(Title:String, Year:String, Author:String)
 
+#mapper function
 def mapper(line:String): Book = {
 
 	val fields=line.split(',')
@@ -14,8 +16,11 @@ def mapper(line:String): Book = {
      	return book
 	}
 
+#creating RDD
 val lines = spark.sparkContext.textFile("./library_data/dest")
 
+#creating Dataframes
 val books = lines.map(mapper).toDF()
 
+#saving to elasticsearch
 books.saveToEs("my_index/books", Map("es.mapping.id" -> "Title"))
